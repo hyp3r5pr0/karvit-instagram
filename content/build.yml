@@ -37,31 +37,32 @@ photos:   # name → Etsy image link  (gallery order noted; tee photo 2 = anothe
   yaar-mug-1:         https://i.etsystatic.com/68686367/r/il/b40bbd/8765975743/il_794xN.8765975743_7gvb.jpg
 
 reels:
+  # "name@detail" = 2x close-up on the print, so the design is readable on a phone.
   - out: media/reels/bas-paanch-minute.mp4
-    photos: [bas-paanch-tee-1, bas-paanch-tee-2, bas-paanch-mug-1]
+    photos: [bas-paanch-tee-1, bas-paanch-tee-1@detail, bas-paanch-tee-2, bas-paanch-mug-1]
     hook: "When an Indian says 'bas paanch minute'"
-    texts: ["…it's never 5 minutes", "Now on a mug too"]
+    texts: ["…it's never 5 minutes", "White or black?", "Now on a mug too"]
 
   - out: media/reels/shubh-deepawali.mp4
-    photos: [deepawali-tee-1, deepawali-tee-2, deepawali-mug-1, deepawali-mug-2]
+    photos: [deepawali-tee-1, deepawali-tee-1@detail, deepawali-tee-2, deepawali-mug-1, deepawali-mug-2]
     hook: "Diwali gift for the family group chat"
-    texts: ["Tee for the cousins", "Mug for Papa's chai", "Free US shipping"]
+    texts: ["Light always wins", "Tee for the cousins", "Mug for Papa's chai", "Free US shipping"]
     cta: "Order this week for Diwali\nlink in bio"
 
   - out: media/reels/chai.mp4
-    photos: [chai-tee-1, chai-tee-2, chai-mug-1]
+    photos: [chai-tee-1, chai-tee-1@detail, chai-tee-2, chai-mug-1]
     hook: "Chai > coffee. We don't take questions."
-    texts: ["In Hindi, for the purists", "Mug included, obviously"]
+    texts: ["Chai: the answer to everything", "In Hindi, for the purists", "Mug included, obviously"]
 
   - out: media/reels/jugaad.mp4
-    photos: [jugaad-tee-1, jugaad-tee-2, jugaad-mug-1]
+    photos: [jugaad-tee-1, jugaad-tee-1@detail, jugaad-tee-2, jugaad-mug-1]
     hook: "Explaining 'jugaad' to my American coworker"
-    texts: ["It's not a hack. It's a lifestyle.", "Wear it to the next standup"]
+    texts: ["A clever fix made with whatever you have", "It's not a hack. It's a lifestyle.", "Mug for the next standup"]
 
   - out: media/reels/out-of-office.mp4
-    photos: [ooo-tee-1, ooo-tee-2, ooo-mug-1]
+    photos: [ooo-tee-1, ooo-tee-1@detail, ooo-tee-2, ooo-mug-1]
     hook: "My mental status from now until January"
-    texts: ["Auto-reply: on", "Also available as a mug"]
+    texts: ["Auto-reply: on", "Out until January. Don't @ me.", "Also available as a mug"]
 
 carousels:
   - outdir: media/carousels/untranslatable

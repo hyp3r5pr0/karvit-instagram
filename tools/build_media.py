@@ -119,10 +119,35 @@ def build(only: str | None, skip_existing: bool, *, fetcher=fetch) -> list[Path]
     photos: dict[str, str] = spec.get("photos") or {}
     made: list[Path] = []
 
-    def photo(name: str) -> Path:
+    def photo(ref: str) -> Path:
+        """'name' = the photo; 'name@detail' = 2x close-up of the centre (the
+        print on a model shot); 'name@crop:cx,cy,scale' = custom close-up, e.g.
+        @crop:0.5,0.45,0.4 keeps 40% of the width around x=50%, y=45%."""
+        name, _, mod = ref.partition("@")
         if name not in photos:
             sys.exit(f"build.yml: photo '{name}' is not listed under photos:")
-        return fetcher(name, photos[name])
+        src = fetcher(name, photos[name])
+        if not mod:
+            return src
+        if mod == "detail":
+            cx, cy, scale = 0.5, 0.5, 0.5
+        elif mod.startswith("crop:"):
+            try:
+                cx, cy, scale = (float(v) for v in mod[5:].split(","))
+            except ValueError:
+                sys.exit(f"build.yml: bad crop in '{ref}' (use @crop:0.5,0.45,0.4)")
+        else:
+            sys.exit(f"build.yml: unknown modifier in '{ref}' (use @detail or @crop:…)")
+        dest = src.with_name(f"{src.stem}-{mod.replace(':', '_').replace(',', '_')}.jpg")
+        if not dest.exists():
+            with Image.open(src) as im:
+                w, h = im.size
+                side = scale * min(w, h)
+                left = min(max(cx * w - side / 2, 0), w - side)
+                top = min(max(cy * h - side / 2, 0), h - side)
+                im.convert("RGB").crop((int(left), int(top), int(left + side),
+                                        int(top + side))).save(dest, quality=94)
+        return dest
 
     for reel in spec.get("reels") or []:
         out = ROOT / reel["out"]

@@ -44,6 +44,9 @@ def cmd_publish(args) -> int:
     settings, posts = load_queue()
     errors, _ = validate(settings, [p for p in posts if not p.draft])
     client = _client(settings, required=not args.dry_run)
+    if client is None:
+        print(gh_annotation("warning", "No IG_ACCESS_TOKEN secret, so the Instagram "
+                                       "connection was not tested (README step 4)."))
     pub = Publisher(client, settings, load_state(), dry_run=args.dry_run)
     if errors:
         for e in errors:

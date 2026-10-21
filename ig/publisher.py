@@ -295,7 +295,8 @@ class Publisher:
         if self.client:
             me = self.client.me()
             self.user_id = str(me.get("user_id") or me.get("id"))
-            self.log(f"Connected as @{me.get('username')} ({me.get('account_type')})")
+            self.log(gh_annotation("notice", f"Connected as @{me.get('username')} "
+                                             f"({me.get('account_type')})"))
             try:
                 limit = self.client.publishing_limit(self.user_id)
                 used = limit.get("quota_usage")

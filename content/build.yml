@@ -1,0 +1,82 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Media build list: turns your Etsy listing photos into reels and carousel
+#  slides. Runs in GitHub Actions ("Build media" workflow) whenever this file
+#  changes, then commits the results to media/ plus previews to media/previews/.
+#
+#  Photos are referenced by direct Etsy image link (i.etsystatic.com). The build
+#  automatically fetches the highest-resolution version available.
+#  To swap a photo: open the listing, right-click the photo → Copy image address,
+#  paste it in place of the old link.
+#
+#  On-screen text: no emoji (the font can't draw them); emoji are fine in captions.
+# ─────────────────────────────────────────────────────────────────────────────
+
+photos:   # name → Etsy image link  (gallery order noted; tee photo 2 = another colour/angle)
+  bas-paanch-tee-1:   https://i.etsystatic.com/68686367/r/il/c1044f/8765964193/il_794xN.8765964193_3v5h.jpg
+  bas-paanch-tee-2:   https://i.etsystatic.com/68686367/r/il/0cc018/8718137548/il_794xN.8718137548_f26x.jpg
+  bas-paanch-mug-1:   https://i.etsystatic.com/68686367/r/il/2e3fc9/8718145124/il_794xN.8718145124_ri6d.jpg
+  deepawali-tee-1:    https://i.etsystatic.com/68686367/r/il/796b3d/8765968303/il_794xN.8765968303_nwau.jpg
+  deepawali-tee-2:    https://i.etsystatic.com/68686367/r/il/f1c059/8718141738/il_794xN.8718141738_2upr.jpg
+  deepawali-mug-1:    https://i.etsystatic.com/68686367/r/il/209e9c/8765977097/il_794xN.8765977097_rdy1.jpg
+  deepawali-mug-2:    https://i.etsystatic.com/68686367/r/il/600cc5/8765977805/il_794xN.8765977805_775a.jpg
+  chai-tee-1:         https://i.etsystatic.com/68686367/r/il/55f260/8718126792/il_794xN.8718126792_sght.jpg
+  chai-tee-2:         https://i.etsystatic.com/68686367/r/il/e8ffa4/8765954599/il_794xN.8765954599_6s18.jpg
+  chai-mug-1:         https://i.etsystatic.com/68686367/r/il/571a7f/8718138316/il_794xN.8718138316_rrra.jpg
+  jugaad-tee-1:       https://i.etsystatic.com/68686367/r/il/7d3a93/8765962711/il_794xN.8765962711_meeu.jpg
+  jugaad-tee-2:       https://i.etsystatic.com/68686367/r/il/02332b/8718136232/il_794xN.8718136232_mv7k.jpg
+  jugaad-mug-1:       https://i.etsystatic.com/68686367/r/il/8d0aa7/8718146434/il_794xN.8718146434_entc.jpg
+  ooo-tee-1:          https://i.etsystatic.com/68686367/r/il/3c1506/8718104020/il_794xN.8718104020_ge7v.jpg
+  ooo-tee-2:          https://i.etsystatic.com/68686367/r/il/a78dcf/8765932029/il_794xN.8765932029_69uz.jpg
+  ooo-mug-1:          https://i.etsystatic.com/68686367/r/il/0d806e/8718130630/il_794xN.8718130630_d9ym.jpg
+  sukoon-tee-1:       https://i.etsystatic.com/68686367/r/il/445e9e/8765980495/il_794xN.8765980495_g2qu.jpg
+  nakhre-tee-1:       https://i.etsystatic.com/68686367/r/il/abfb8f/8765988657/il_794xN.8765988657_bmv8.jpg
+  timepass-tee-1:     https://i.etsystatic.com/68686367/r/il/3de338/8717937774/il_794xN.8717937774_cerd.jpg
+  chalta-hai-tee-1:   https://i.etsystatic.com/68686367/r/il/380d07/8765766929/il_794xN.8765766929_30e3.jpg
+  maa-mug-1:          https://i.etsystatic.com/68686367/r/il/f78d2c/8718154252/il_794xN.8718154252_toyh.jpg
+  ghar-mug-1:         https://i.etsystatic.com/68686367/r/il/8437e6/8765970019/il_794xN.8765970019_8hoa.jpg
+  yaar-mug-1:         https://i.etsystatic.com/68686367/r/il/b40bbd/8765975743/il_794xN.8765975743_7gvb.jpg
+
+reels:
+  - out: media/reels/bas-paanch-minute.mp4
+    photos: [bas-paanch-tee-1, bas-paanch-tee-2, bas-paanch-mug-1]
+    hook: "When an Indian says 'bas paanch minute'"
+    texts: ["…it's never 5 minutes", "Now on a mug too"]
+
+  - out: media/reels/shubh-deepawali.mp4
+    photos: [deepawali-tee-1, deepawali-tee-2, deepawali-mug-1, deepawali-mug-2]
+    hook: "Diwali gift for the family group chat"
+    texts: ["Tee for the cousins", "Mug for Papa's chai", "Free US shipping"]
+    cta: "Order this week for Diwali\nlink in bio"
+
+  - out: media/reels/chai.mp4
+    photos: [chai-tee-1, chai-tee-2, chai-mug-1]
+    hook: "Chai > coffee. We don't take questions."
+    texts: ["In Hindi, for the purists", "Mug included, obviously"]
+
+  - out: media/reels/jugaad.mp4
+    photos: [jugaad-tee-1, jugaad-tee-2, jugaad-mug-1]
+    hook: "Explaining 'jugaad' to my American coworker"
+    texts: ["It's not a hack. It's a lifestyle.", "Wear it to the next standup"]
+
+  - out: media/reels/out-of-office.mp4
+    photos: [ooo-tee-1, ooo-tee-2, ooo-mug-1]
+    hook: "My mental status from now until January"
+    texts: ["Auto-reply: on", "Also available as a mug"]
+
+carousels:
+  - outdir: media/carousels/untranslatable
+    cover: {file: 01-cover.jpg, title: "5 Hindi words\nEnglish can't handle", sub: "Swipe →"}
+    slides:
+      - {file: 02-jugaad.jpg,     photo: jugaad-tee-1,     text: "Jugaad: a genius fix with whatever's lying around"}
+      - {file: 03-sukoon.jpg,     photo: sukoon-tee-1,     text: "Sukoon: the deep calm when everything finally settles"}
+      - {file: 04-nakhre.jpg,     photo: nakhre-tee-1,     text: "Nakhre: making a whole show of being hard to please"}
+      - {file: 05-timepass.jpg,   photo: timepass-tee-1,   text: "Timepass: doing something just to kill time"}
+      - {file: 06-chalta-hai.jpg, photo: chalta-hai-tee-1, text: "Chalta hai: \"eh, it'll do\""}
+
+  - outdir: media/carousels/diwali-guide
+    cover: {file: 01-cover.jpg, title: "Diwali gifts\nunder $30", sub: "Free US shipping · Swipe →"}
+    slides:
+      - {file: 02-maa.jpg,             photo: maa-mug-1,       text: "For Maa"}
+      - {file: 03-ghar.jpg,            photo: ghar-mug-1,      text: "For whoever's hosting"}
+      - {file: 04-yaar.jpg,            photo: yaar-mug-1,      text: "For your yaar"}
+      - {file: 05-shubh-deepawali.jpg, photo: deepawali-mug-1, text: "When in doubt"}

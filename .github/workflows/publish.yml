@@ -1,0 +1,65 @@
+name: Publish to Instagram
+
+on:
+  schedule:
+    # Every 30 minutes. GitHub can start scheduled runs 5-20 min late, so a post
+    # set for 19:30 New York time usually goes out between 19:37 and ~19:55.
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (check everything, publish nothing)"
+        type: boolean
+        default: true
+      post_id:
+        description: "Publish this post id right now (optional)"
+        type: string
+        required: false
+
+permissions:
+  contents: write   # to save content/posted.json
+
+concurrency:
+  group: instagram-publish   # never two publishers at once
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Publish due posts
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}   # optional, only for private repos
+          # Inputs go through env vars, never pasted into the shell command.
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+          POST_ID: ${{ inputs.post_id }}
+        run: |
+          args=()
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ -n "$POST_ID" ]; then args+=(--post "$POST_ID"); fi
+          python -m ig publish "${args[@]}"
+
+      - name: Save what was posted
+        if: always()
+        run: |
+          git config user.name  "karvit-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/posted.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Instagram: update posted log [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase --quiet && git push --quiet && exit 0
+            sleep 5
+          done
+          echo "::error::Could not save posted.json"; exit 1

@@ -14,70 +14,76 @@ settings:
   max_lateness_hours: 12         # if GitHub was down, don't post a 7 PM reel at 9 AM
   max_attempts: 3                # then stop retrying and flag it
   reel_upload: url               # url (official) | auto | resumable
-  caption_footer: "🛒 Shop KARVIT on Etsy — link in bio"
-  always_hashtags: [karvit]
+  caption_footer: "🛒 Shop KARVIT on Etsy, link in bio"
+  always_hashtags: [karvit, madetostandtall]
 
 posts:
-  # ═════════ WEEK 1 · 22–28 Oct · theme: desi humour + Diwali gifting ═════════
-  # Diwali is Sun 8 Nov. Printify US orders need ~1–2 weeks to arrive, so the
-  # Diwali posts run this week. All drafts until the media files are added.
+  # ═════════ WEEK OF 24 OCT · launch: KARVIT Société + last Diwali window ═════════
+  # Mix this week: 3 Société (premium) · 1 Modern Desi (Diwali) · 1 winter/holiday.
+  # Brief times are IST 7:30 AM = 10:00 PM New York the evening before.
 
-  - id: w1-bas-paanch-minute
-    draft: true
-    type: reel
-    when: 2026-10-22 19:30          # Thu 7:30 PM NY = Fri 5:00 AM IST
-    media: media/reels/bas-paanch-minute.mp4
-    make: {mockups: "Bas Paanch Minute tee (front + lifestyle) and mug",
-           hook: "When an Indian says 'bas paanch minute'", texts: ["…it's never 5 minutes", "Now on a mug too"]}
+  - id: societe-slow-mornings
+    type: image
+    when: 2026-10-24 22:00          # Sat 10 PM NY = Sun 25 Oct 7:30 AM IST
+    media: media/posts/societe-slow-mornings.jpg
     caption: |
-      "Bas paanch minute" has never once meant five minutes. 😅
-      Tag the friend who's always "just 5 minutes away."
-    hashtags: [desihumor, indianamerican, desimemes, hindi, funnytshirt, desigifts]
-    first_comment: "What's the longest 'paanch minute' you've waited? 👇"
+      Membership is simple: coffee first, plans later. ☕
+      The Slow Mornings Club tee, now open to new members.
+      Soft Bella+Canvas cotton · KARVIT neck label · free US shipping.
+    hashtags: [coffeelover, slowmornings, coffeeshirt, minimalistfashion, socialclub, cozystyle, giftforher, giftforhim]
 
-  - id: w1-diwali-gift
-    draft: true
-    type: reel
-    when: 2026-10-23 19:30          # Fri
-    media: media/reels/shubh-deepawali.mp4
-    make: {mockups: "Shubh Deepawali tee + mug (front + lifestyle)",
-           hook: "Diwali gift for the family group chat 🪔", texts: ["Tee for the cousins", "Mug for Papa's chai"],
-           cta: "Order this week for Diwali\nlink in bio"}
-    caption: |
-      Diwali is on Nov 8 and the family group chat is already sending diya GIFs. 🪔
-      Show up with a gift instead. Order this week so it arrives in time.
-    hashtags: [diwali, diwaligifts, happydiwali, indianamerican, desigifts, festivalofLights]
-
-  - id: w1-untranslatable-words
-    draft: true
+  - id: w1-diwali-gift-guide
     type: carousel
-    when: 2026-10-24 12:15          # Sat lunch
+    when: 2026-10-25 12:15          # Sun lunch NY = Sun 9:45 PM IST
     media:
-      - media/carousels/untranslatable/01-cover.jpg      # text slide: "5 Hindi words English can't handle"
-      - media/carousels/untranslatable/02-jugaad.jpg
-      - media/carousels/untranslatable/03-sukoon.jpg
-      - media/carousels/untranslatable/04-nakhre.jpg
-      - media/carousels/untranslatable/05-timepass.jpg
-      - media/carousels/untranslatable/06-chalta-hai.jpg
-    make: {mockups: "one tee or mug mockup each: Jugaad, Sukoon, Nakhre, Timepass, Chalta Hai",
-           slide_text: ["Jugaad = a genius fix with whatever's lying around",
-                        "Sukoon = the deep calm after everything finally settles",
-                        "Nakhre = making a whole show of being hard to please",
-                        "Timepass = doing something just to kill time",
-                        "Chalta hai = 'eh, it'll do'"]}
+      - media/carousels/diwali-guide/01-cover.jpg
+      - media/carousels/diwali-guide/02-maa.jpg
+      - media/carousels/diwali-guide/03-ghar.jpg
+      - media/carousels/diwali-guide/04-yaar.jpg
+      - media/carousels/diwali-guide/05-shubh-deepawali.jpg
     caption: |
-      5 Hindi words English just can't handle. 🇮🇳
-      Save this for the next time someone asks what "jugaad" means.
-      Which one describes you? 👇
-    hashtags: [hindi, hindiwords, desi, indianamerican, learnhindi, desivibes, giftsforher]
+      Diwali gifts under $30, sorted. 🪔
+      Maa, Ghar, Yaar, Shubh Deepawali: one for everyone on your list.
+      Diwali is Nov 8. Order this week so it arrives in time.
+    hashtags: [diwaligifts, diwali, happydiwali, giftsformom, housewarminggift, indianamerican, desigifts]
+
+  - id: societe-last-run
+    type: image
+    when: 2026-10-26 22:00          # Mon 10 PM NY = Tue 27 Oct 7:30 AM IST
+    media: media/posts/societe-last-run.jpg
+    caption: |
+      Cold days. Warm nights. One more run. ⛷️
+      The Last Run Society tee: for skiers who close the lifts and still make it to the fire.
+      Soft Bella+Canvas cotton · KARVIT neck label · free US shipping.
+    hashtags: [skitrip, skiseason, skilife, mountainlife, winterstyle, skigift, alpinestyle, socialclub]
+
+  - id: w1-out-of-office
+    type: reel
+    when: 2026-10-27 19:30          # Tue 7:30 PM NY = Wed 5:00 AM IST
+    media: media/reels/out-of-office.mp4
+    caption: |
+      Mentally, I've already set my auto-reply. 📴
+      Out of Office Until January: the tee and mug for everyone counting down to the holidays.
+    hashtags: [outofoffice, holidayseason, officehumor, winterstyle, christmasgifts, coworkergift]
+
+  - id: societe-late-chapters
+    type: image
+    when: 2026-10-28 22:00          # Wed 10 PM NY = Thu 29 Oct 7:30 AM IST
+    media: media/posts/societe-late-chapters.jpg
+    caption: |
+      Meeting time: whenever the chapter ends. 📚
+      The Late Chapters Book Society tee, for readers who always say "one more".
+      Soft Bella+Canvas cotton · KARVIT neck label · free US shipping.
+    hashtags: [booklover, bookish, bookclub, bookstagram, readersofinstagram, bookishgifts, darkacademia, socialclub]
+
+  # ═════════ PARKED (media ready, not scheduled) ═════════
+  # Modern Desi reels for next week's 30% desi slot. Re-date and remove draft: true to use.
 
   - id: w1-chai
     draft: true
     type: reel
-    when: 2026-10-25 19:30          # Sun
+    when: 2026-11-01 19:30
     media: media/reels/chai.mp4
-    make: {mockups: "Chai tee + Chai mug (lifestyle with a cup if possible)",
-           hook: "Chai > coffee. We don't take questions.", texts: ["In Hindi, for the purists", "Mug included, obviously"]}
     caption: |
       Coffee is a drink. Chai is a personality. ☕
       Hindi chai tee + mug for the one who makes it with adrak, every time.
@@ -86,44 +92,9 @@ posts:
   - id: w1-jugaad
     draft: true
     type: reel
-    when: 2026-10-26 19:30          # Mon
+    when: 2026-11-03 19:30
     media: media/reels/jugaad.mp4
-    make: {mockups: "Jugaad tee + mug",
-           hook: "Explaining 'jugaad' to my American coworker", texts: ["It's not a hack. It's a lifestyle.", "Wear it to the next standup"]}
     caption: |
       Tried to explain "jugaad" in a meeting. Ended up fixing the projector with a hair clip. 🔧
       For every desi engineer, dad, and duct-tape genius.
     hashtags: [jugaad, desihumor, indianamerican, desi, engineerlife, funnytshirt]
-
-  - id: w1-diwali-gift-guide
-    draft: true
-    type: carousel
-    when: 2026-10-27 12:15          # Tue lunch
-    media:
-      - media/carousels/diwali-guide/01-cover.jpg        # text slide: "Diwali gifts under $30"
-      - media/carousels/diwali-guide/02-maa.jpg
-      - media/carousels/diwali-guide/03-ghar.jpg
-      - media/carousels/diwali-guide/04-yaar.jpg
-      - media/carousels/diwali-guide/05-shubh-deepawali.jpg
-    make: {mockups: "mugs: Maa, Ghar, Yaar, Shubh Deepawali",
-           slide_text: ["For Maa", "For the new home", "For your yaar", "For everyone else"]}
-    caption: |
-      Diwali gifts under $30, sorted. 🪔
-      ➊ Maa — for the one who still packs you food
-      ➋ Ghar — for whoever's hosting this year
-      ➌ Yaar — for the friend who's basically family
-      ➍ Shubh Deepawali — when in doubt
-      Free US shipping on all of them. Order this week to make it before Nov 8.
-    hashtags: [diwaligifts, diwali, giftsformom, housewarminggift, indianamerican, desigifts]
-
-  - id: w1-out-of-office
-    draft: true
-    type: reel
-    when: 2026-10-28 19:30          # Wed
-    media: media/reels/out-of-office.mp4
-    make: {mockups: "Out of Office Until January tee + mug",
-           hook: "My mental status from now until January", texts: ["Auto-reply: on", "Also available as a mug"]}
-    caption: |
-      Mentally, I've already set my auto-reply. 📴
-      Out of Office Until January: the tee and mug for everyone counting down to the holidays.
-    hashtags: [outofoffice, holidayseason, officehumor, funnymug, christmasgifts, coworkergift]
